@@ -25,9 +25,9 @@ setup(
     # The first three parameters are not required, if at least a
     # 'version' is given, then a versioninfo resource is built from
     # them and added to the executables.
-    version = "0.2.6",
-    description = "Kevin's Omaha Calculator",
-    name = "The Omaha Calculator",
+    version = "0.2.7",
+    description = "Omaha Odds Calculator",
+    name = "Omaha Odds Calculator",
 
     # targets to build
     #windows = ["omaha.py"],

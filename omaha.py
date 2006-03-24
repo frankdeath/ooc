@@ -48,7 +48,7 @@ ID_CARD_9=138
 ID_EXIT=201
 ID_ABOUT=202
 
-FRAME_TITLE = "Kevin's Omaha Calculator"
+FRAME_TITLE = "Omaha Odds Calculator"
 FRAME_SIZE = (555,770)
 COL_SIZE = 85
 ROW_SIZE = 35
@@ -831,7 +831,7 @@ class AppFrame(wx.Frame):
 
     def OnAbout(self,e):
         # Create a message dailog box
-        d = wx.MessageDialog(self, "Kevin's Omaha Calculator\nWritten in Python\nGUI in wxPython", "About Kevin's Omaha Calculator", wx.OK)
+	d = wx.MessageDialog(self, "Omaha Odds Calculator v0.2.7\nWritten by Kevin Peterson\nEmail: omahaoddscalculator@gmail.com\n http://www.omahaoddscalculator.com", "About Omaha Odds Calculator", wx.OK)
 
         # Show it
         d.ShowModal()
@@ -849,8 +849,30 @@ class MyCalc(wx.App):
 		self.SetTopWindow(frame)
 		return True
 
+def main_is_frozen():
+    return (hasattr(sys, "frozen"))
+
 if __name__ == '__main__':
-    app = MyCalc(0)
+    import sys
     import psyco
-    psyco.full()
-    app.MainLoop()
+    
+    if len(sys.argv) == 1:
+        app = MyCalc(0)
+        psyco.full()
+        app.MainLoop()
+    else:
+	if not main_is_frozen():
+            psyco.full()
+            length = len(sys.argv)
+            if length == 2:
+                main(sys.argv[1], "", "", "")
+            elif length == 3:
+                main(sys.argv[1], sys.argv[2], "", "")
+            elif length == 4:
+                main(sys.argv[1], sys.argv[2], sys.argv[3], "")
+            elif length == 5:
+                main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+            else:
+                # This will never be displayed
+                print "Usage: omaha.py <hole_cards> <flop> <turn> <river>"
+
