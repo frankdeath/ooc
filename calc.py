@@ -1054,8 +1054,8 @@ def main(hole_string, flop_string, turn_string, river_string):
 
 # This is what actually runs
 if __name__=='__main__':
-    import psyco
-    psyco.full()
+    #import psyco
+    #psyco.full()
 
     length = len(sys.argv)
     if length == 2:
