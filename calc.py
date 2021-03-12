@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 # file:         calc.py
 # usage:        calc.py <hole_cards> <flop>
 # description:  This script calculates probabilities.
